@@ -15,15 +15,15 @@ export function Profile({ username, tag, location, avatar, stats }) {
   </div>
 
   <ul className={css.stats}>
-    <li>
+    <li className={css.statsItem}>
       <span className={css.label}>Followers</span>
                 <span className={css.quantity}>{stats.followers}</span>
     </li>
-    <li>
+    <li className={css.statsItem}>
       <span className={css.label}>Views</span>
       <span className={css.quantity}>{stats.views}</span>
     </li>
-    <li>
+    <li className={css.statsItem}>
       <span className={css.label}>Likes</span>
       <span className={css.quantity}>{stats.likes}</span>
     </li>
@@ -38,7 +38,7 @@ Profile.propTypes = {
         avatar: PropTypes.string.isRequired,
         
         
-  stats: PropTypes.shape({
+  stats: PropTypes.exact({
     followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,

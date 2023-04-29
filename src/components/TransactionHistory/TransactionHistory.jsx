@@ -5,18 +5,18 @@ export function TransactionHistory({items}) {
     return <table className={css.transactionHistory}>
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Amount</th>
-      <th>Currency</th>
+      <th className={css.tableHeading}>Type</th>
+      <th className={css.tableHeading}>Amount</th>
+      <th className={css.tableHeading}>Currency</th>
     </tr>
   </thead>
 
         <tbody>
             {items.map(({id, type, amount, currency}) => {
                 return <tr key={id}>
-                    <td>{type}</td>
-                    <td>{amount}</td>
-                    <td>{currency}</td>
+                    <td className={css.tableCell}>{type}</td>
+                    <td className={css.tableCell}>{amount}</td>
+                    <td className={css.tableCell}>{currency}</td>
                     </tr>
             })}
     
