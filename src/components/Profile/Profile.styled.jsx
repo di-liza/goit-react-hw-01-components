@@ -52,6 +52,7 @@ export const StatsItem = styled.li`
   border-radius: 4px;
   padding: 10px;
   width: 80px;
+  border: 1px solid #00eaff;
 `;
 
 export const StatsLabel = styled.span`

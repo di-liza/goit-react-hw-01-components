@@ -9,8 +9,8 @@ export const TransactionHistoryTab = styled.table`
 `;
 
 export const TableHeading = styled.th`
- color: ${(props) => props.theme.colors.blue};
-  color: ${(props) => props.theme.colors.black};
+ color: ${(props) => props.theme.colors.white};
+ background-color:${(props) => props.theme.colors.tableHeaders}; 
   font-weight: bold;
   text-align: center;
   padding: 10px 105px;
@@ -19,7 +19,7 @@ export const TableHeading = styled.th`
 
 
 export const TableCell = styled.td`
- /* background-color: ${(props) => props.theme.colors.blue}; */
+
   text-align: left;
   padding-top: 10px;
   padding-bottom: 10px;
