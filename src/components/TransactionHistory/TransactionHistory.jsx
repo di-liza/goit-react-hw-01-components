@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import {Section, Container} from 'constants/index'
-import { TableCell, TableHeading, TransactionHistoryTab } from './TransactionHistory.styled';
+import { TableRow, TableCell, TableHeading, TransactionHistoryTab } from './TransactionHistory.styled';
 
 
 export function TransactionHistory({items}) {
@@ -18,11 +18,11 @@ export function TransactionHistory({items}) {
     
             <tbody>
                 {items.map(({id, type, amount, currency}) => {
-                    return <tr key={id}>
+                    return <TableRow key={id}>
                         <TableCell >{type}</TableCell>
                         <TableCell >{amount}</TableCell>
                         <TableCell >{currency}</TableCell>
-                        </tr>
+                        </TableRow>
                 })}
         
       </tbody>

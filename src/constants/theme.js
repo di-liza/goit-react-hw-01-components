@@ -7,6 +7,7 @@ export const theme = Object.freeze({
     red: '#f44336',
     blue: '#8bc5e9',
     tableBorder: '#ccc',
+    tableBlue: '#a7e7ff',
     boxShadowColor: 'rgba(0, 0, 0, 0.1)',
   },
 });
