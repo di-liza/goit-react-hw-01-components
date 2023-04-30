@@ -1,18 +1,26 @@
 import PropTypes from 'prop-types';
-import css from './FriendList.module.css';
 
-export function FriendList({friends}) {
-    return <section>
-         <ul className={css.friendList}>
-            {friends.map(({id, name, isOnline, avatar}) => {
-                return <li key={id} className={css.item}>
-                    <span className={`${css.status} ${css[isOnline]}`}>{isOnline}</span>
-                <img className={css.avatar} src={avatar} alt={avatar + ' avatar'}  width="48" />
-                    <p className={css.name}>{name}</p>
-                </li>
-            })}
-        </ul>
-     </section>
+import {Section, Container} from 'constants/index'
+import { List, Item, Avatar, Status, FriendName } from './FriendList.styled';
+import {imageSize} from 'constants'
+
+
+export function FriendList({ friends }) {
+     
+    return <Section>
+         <Container>
+             <List>
+                {friends.map(({id, name, isOnline, avatar}) => {
+                    return <Item key={id}>
+                        <Status webStatus={isOnline}>{isOnline}</Status>
+                    <Avatar src={avatar} alt={avatar + ' avatar'}  width={imageSize.small.width}
+              height={imageSize.small.height} />
+                        <FriendName >{name}</FriendName>
+                    </Item>
+                })}
+            </List>
+         </Container>
+     </Section>
 }
 
 FriendList.propTypes = {

@@ -1,29 +1,34 @@
 import PropTypes from 'prop-types';
-import css from './TransactionHistory.module.css';
+
+import {Section, Container} from 'constants/index'
+import { TableCell, TableHeading, TransactionHistoryTab } from './TransactionHistory.styled';
+
 
 export function TransactionHistory({items}) {
-    return <section>
-     <table className={css.transactionHistory}>
-    <thead>
-      <tr>
-        <th className={css.tableHeading}>Type</th>
-        <th className={css.tableHeading}>Amount</th>
-        <th className={css.tableHeading}>Currency</th>
-      </tr>
-    </thead>
-  
-          <tbody>
-              {items.map(({id, type, amount, currency}) => {
-                  return <tr key={id}>
-                      <td className={css.tableCell}>{type}</td>
-                      <td className={css.tableCell}>{amount}</td>
-                      <td className={css.tableCell}>{currency}</td>
-                      </tr>
-              })}
-      
-    </tbody>
-  </table>
-   </section>
+    return <Section>
+     <Container>
+       <TransactionHistoryTab>
+      <thead>
+        <tr>
+          <TableHeading >Type</TableHeading>
+          <TableHeading >Amount</TableHeading>
+          <TableHeading >Currency</TableHeading>
+        </tr>
+      </thead>
+    
+            <tbody>
+                {items.map(({id, type, amount, currency}) => {
+                    return <tr key={id}>
+                        <TableCell >{type}</TableCell>
+                        <TableCell >{amount}</TableCell>
+                        <TableCell >{currency}</TableCell>
+                        </tr>
+                })}
+        
+      </tbody>
+    </TransactionHistoryTab>
+     </Container>
+   </Section>
 }
 TransactionHistory.propTypes = {
   items: PropTypes.arrayOf(PropTypes.exact({

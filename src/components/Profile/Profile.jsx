@@ -1,36 +1,42 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+
+import { Section, Container } from 'constants/index';
+import {StatsQuantity, StatsLabel, StatsItem, ProfileCard, Description, UserAvatar, UserName, UserInfo, StatsList} from './Profile.styled'
+import {imageSize} from 'constants'
 
 export function Profile({ username, tag, location, avatar, stats }) {
-    return <section>
-       <div key={tag} className={css.profile}>
-    <div className={css.description}>
-      <img
-        src={avatar}
-        alt={username + ' avatar'}
-        className={css.avatar}
-      />
-      <p className={css.name}>{username}</p>
-      <p className={css.tag}>@{tag}</p>
-      <p className={css.location}>{location}</p>
-    </div>
-  
-    <ul className={css.stats}>
-      <li className={css.statsItem}>
-        <span className={css.label}>Followers</span>
-                  <span className={css.quantity}>{stats.followers}</span>
-      </li>
-      <li className={css.statsItem}>
-        <span className={css.label}>Views</span>
-        <span className={css.quantity}>{stats.views}</span>
-      </li>
-      <li className={css.statsItem}>
-        <span className={css.label}>Likes</span>
-        <span className={css.quantity}>{stats.likes}</span>
-      </li>
-    </ul>
-  </div>
- </section>
+    return <Section>
+       <Container>
+         <ProfileCard key={tag}>
+      <Description>
+        <UserAvatar
+          src={avatar}
+              alt={username + ' avatar'}
+              width={imageSize.middle.width}
+              height={imageSize.middle.height}
+        />
+        <UserName >{username}</UserName>
+        <UserInfo >@{tag}</UserInfo>
+        <UserInfo >{location}</UserInfo>
+      </Description>
+    
+      <StatsList>
+        <StatsItem>
+          <StatsLabel >Followers</StatsLabel>
+                    <StatsQuantity >{stats.followers}</StatsQuantity>
+        </StatsItem>
+        <StatsItem>
+          <StatsLabel >Views</StatsLabel>
+          <StatsQuantity >{stats.views}</StatsQuantity>
+        </StatsItem>
+        <StatsItem>
+          <StatsLabel >Likes</StatsLabel>
+          <StatsQuantity >{stats.likes}</StatsQuantity>
+        </StatsItem>
+      </StatsList>
+    </ProfileCard>
+       </Container>
+ </Section>
 }
 
 Profile.propTypes = {
